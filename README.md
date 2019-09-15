@@ -16,7 +16,7 @@ setTimeout(function(){
     console.inlineTimeTag("NO WAY! ITS AWESOME!");
     console.timeTag("AND ITS CYAN NOW", {mod1: 'cyan'});
     console.timeTag("BRIGHTER", {mod1: 'cyan', mod2: 'bright'});
-    console.timeTag("CHANGE BACKGROUND", {mod1: 'cyan', mod2: 'bright', mod3: 'bgGreen'});
+    console.timeTag("CHANGE BACKGROUND", {mod1: 'yellow', mod2: 'bright', mod3: 'bgGreen'});
 }, 4000)
 ```
 
