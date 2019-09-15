@@ -1,0 +1,24 @@
+{
+    "name": "super-console",
+    "version": "0.1.0",
+    "description": "Adds to console some useful functions",
+    "main": "super-console.min.js",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/planetsLightningArrester/super-console.git"
+    },
+    "keywords": [
+      "print",
+      "console",
+      "time",
+      "stamp",
+      "inline",
+      "colors"
+    ],
+    "author": "Planet's Lightning Arrester",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/planetsLightningArrester/super-console/issues"
+    },
+    "homepage": "https://github.com/planetsLightningArrester/super-console#readme"
+  }
