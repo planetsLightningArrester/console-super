@@ -1,4 +1,4 @@
-# super-console
+# console-super
 Add time stamp, color and replace previous line. It all using only console! Make console great again!
 
 ### Install
