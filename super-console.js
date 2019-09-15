@@ -3,12 +3,14 @@ let process = require('process');
 let msOnOff = -5;
 
 let terminalColor = {
-    reset: "\x1b[0m",
-    bright: "\x1b[1m",
-    dim: "\x1b[2m",
-    underscore: "\x1b[4m",
-    reverse: "\x1b[7m",
+    //Modifiers
+    reset: "\x1b[0m",       //Reset to default
+    bright: "\x1b[1m",      //Brighter
+    dim: "\x1b[2m",         //Dim
+    underscore: "\x1b[4m",  //Put a underscore beneath everything
+    reverse: "\x1b[7m",     //Reverses the fore and background colors
 
+    //Font colors
     black: "\x1b[30m",
     red: "\x1b[31m",
     green: "\x1b[32m",
@@ -18,6 +20,7 @@ let terminalColor = {
     cyan: "\x1b[36m",
     white: "\x1b[37m",
 
+    //Background colos
     bgBlack: "\x1b[40m",
     bgRed: "\x1b[41m",
     bgGreen: "\x1b[42m",
