@@ -70,6 +70,12 @@ console.inlineTimeTag = function (data, ...args) {
     console.timeTag(data, ...args);
 }
 
+console.goBackLines = function (lines) {
+    process.stdout.cursorTo(0);
+    process.stdout.moveCursor(0, -lines);
+    process.stdout.clearLine();
+}
+
 console.showMs = function (showMs) {
     if (showMs) {
         msOnOff = -1
