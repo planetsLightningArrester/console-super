@@ -66,7 +66,7 @@ console.timeTag = function (data, ...args) {
     [data, time] = processDataAndReturnWithTime(data, base);
 
     process.stdout.write(colors + '[' + time.slice(0, msOnOff) + '] ' + data + terminalColor.reset + '\r\n');
-    if (socket) socket.emit('console', data);
+    if (socket) socket.emit('console', '[' + time.slice(0, msOnOff) + '] ' + data);
 }
 
 console.inlineTimeTag = function (data, ...args) {
