@@ -69,3 +69,9 @@ setTimeout(function(){
 'bgWhite'
 
 ```
+
+### You can integrate with socket
+```Javascript
+console.setSocket(socket);
+console.timeTag("This message is going be shown here and also fires a socket.emit('console', this.message)");
+```

@@ -30,6 +30,7 @@ let terminalColor = {
     bgCyan: "\x1b[46m",
     bgWhite: "\x1b[47m"
 }
+let socket = null;
 
 function processDataAndReturnWithTime(data, base) {
     if (typeof data == 'object') {
@@ -41,6 +42,10 @@ function processDataAndReturnWithTime(data, base) {
     let time = new Date();
     time = (time.getHours() >= 10 ? time.getHours() : ('0' + time.getHours())) + ':' + (time.getMinutes() >= 10 ? time.getMinutes() : ('0' + time.getMinutes())) + ':' + (time.getSeconds() >= 10 ? time.getSeconds() : ('0' + time.getSeconds())) + '.' + (time.getMilliseconds() >= 10 ? (time.getMilliseconds() >= 100 ? time.getMilliseconds() : '0' + time.getMilliseconds()) : ('00' + time.getMilliseconds())) + ' ';
     return [data, time];
+}
+
+console.setSocket = function (_socket) {
+    socket = _socket;
 }
 
 console.timeTag = function (data, ...args) {
@@ -61,6 +66,7 @@ console.timeTag = function (data, ...args) {
     [data, time] = processDataAndReturnWithTime(data, base);
 
     process.stdout.write(colors + '[' + time.slice(0, msOnOff) + '] ' + data + terminalColor.reset + '\r\n');
+    if (socket) socket.emit('console', data);
 }
 
 console.inlineTimeTag = function (data, ...args) {
@@ -74,6 +80,16 @@ console.goBackLines = function (lines) {
     process.stdout.cursorTo(0);
     process.stdout.moveCursor(0, -lines);
     process.stdout.clearLine();
+}
+
+console.clearLine = function (lines = 0) {
+    process.stdout.cursorTo(0);
+    process.stdout.moveCursor(0, -lines);
+    process.stdout.clearLine();
+}
+
+console.clear = function () {
+    process.stdout.write('\033c');
 }
 
 console.showMs = function (showMs) {
