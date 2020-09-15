@@ -14,16 +14,17 @@ console.timeTag("AND WITH MS!");
 console.timeTag("I CAN EVEN OVERWRITE THIS (IN 4 SECS)");
 setTimeout(function(){
     console.inlineTimeTag("NO WAY! ITS AWESOME!");
-    console.timeTag("AND ITS CYAN NOW", {mod1: 'cyan'});
-    console.timeTag("BRIGHTER", {mod1: 'cyan', mod2: 'bright'});
-    console.timeTag("CHANGE BACKGROUND", {mod1: 'yellow', mod2: 'bright', mod3: 'bgGreen'});
+    console.timeTag("AND ITS CYAN NOW", 'cyan');
+    console.timeTag("BRIGHTER", 'cyan', 'bright');
+    console.timeTag("CHANGE BACKGROUND", 'yellow', 'bright', 'bgGreen');
 }, 4000)
 ```
 
 ### Parameters
 + **data:** Data to be shown (`string`, `array`, `object`, `number`)
 + **base (default is 10):** If `data` is a `number` type, then `base` defines in witch base the number must be show, e.g. binary (2), decimal (10), hexdecimal (16), etc.
-+ **{mod1: 'red', mod2: 'bright', mod3: 'bgWhite'}:** You can modify the terminal characteristics, like color, its background color and brightness! See at the end all the possibilities.
++ **...args** You can modify the terminal characteristics, like color, its background color and brightness! See at the end all the possibilities.
++ **{mod1: 'red', mod2: 'bright', mod3: 'bgWhite'}:** Same as above just for backward compatibility.
 
 ### Methods
 + ***console.timeTag(data[,base,{mod1, mod2, mod3}]):***
@@ -68,4 +69,10 @@ setTimeout(function(){
 'bgCyan'
 'bgWhite'
 
+```
+
+### You can integrate with socket
+```Javascript
+console.setSocket(socket);
+console.timeTag("This message is going be shown here and also fires a socket.emit('console', this.message)");
 ```
